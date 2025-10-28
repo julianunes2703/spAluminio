@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import "./Layout.css";
 import ComercialDashboard from "../Comercial/ComercialDashboard";
+import ProducaoDashboard from "../Producao/ProducaoDashboard";
 
 
 export default function DashboardLayout() {
@@ -14,6 +15,9 @@ export default function DashboardLayout() {
     
       case "comercial":
        return <ComercialDashboard/>
+
+       case "producao":
+        return <ProducaoDashboard/>
         
 
         
@@ -42,7 +46,13 @@ export default function DashboardLayout() {
             >
               • Comercial
             </li>
-          
+          <li className="submenu-title"> Produção</li>
+          <li
+              className={selectedMenu === "producao" ? "active" : ""}
+              onClick={() => setSelectedMenu("producao")}
+            >
+              • Produção
+            </li>
           </ul>
         </nav>
       </aside>

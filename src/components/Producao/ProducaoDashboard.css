@@ -1,0 +1,182 @@
+/* ===== Tema monocromático com look do Comercial ===== */
+:root{
+  --pd-black:#000;
+  --pd-white:#fff;
+  --pd-bg:#f7f8fb;         /* fundo da página, igual ao Comercial */
+  --pd-border:#dcdfe4;     /* borda suave */
+  --pd-border-strong:#bfc5cd;
+  --pd-muted:#6b7280;      /* textos auxiliares */
+  --pd-card-shadow:0 1px 0 rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.04);
+}
+
+/* Página */
+.pd__page{
+  max-width:1200px;
+  margin:0 auto;
+  padding:24px 16px 64px;
+  color:var(--pd-black);
+  background:var(--pd-bg);
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+}
+
+/* Header */
+.pd__header{ margin:8px 0 12px; }
+.pd__title{
+  font-size:32px;
+  font-weight:900;
+  margin:0 0 4px 0;
+  letter-spacing:.2px;
+  color:var(--pd-black);
+}
+.pd__subtitle{
+  margin:0;
+  font-size:14px;
+  color:var(--pd-muted);
+}
+
+/* Estados */
+.pd__loading,.pd__error,.pd__empty{
+  border:1px solid var(--pd-border);
+  padding:16px;
+  text-align:center;
+  background:var(--pd-white);
+  border-radius:14px;
+  box-shadow:var(--pd-card-shadow);
+}
+
+/* KPIs */
+.pd__kpis{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:14px;
+  margin:16px 0 20px;
+}
+.pd__card{
+  border:1px solid var(--pd-border);
+  border-radius:16px;
+  background:var(--pd-white);
+  padding:18px 16px;
+  box-shadow:var(--pd-card-shadow);
+}
+.pd__cardLabel{
+  display:block;
+  font-size:12px;
+  color:var(--pd-muted);
+  margin-bottom:8px;
+}
+.pd__cardValue{
+  font-size:22px;
+  font-weight:900;
+  color:var(--pd-black);
+}
+
+/* Painéis */
+.pd__panel{
+  border:1px solid var(--pd-border);
+  border-radius:18px;
+  background:var(--pd-white);
+  margin:18px 0;
+  overflow:hidden;
+  box-shadow:var(--pd-card-shadow);
+}
+.pd__panelHeader{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--pd-border);
+  padding:12px 14px;
+  background:#f3f4f7; /* faixa clara como no Comercial */
+}
+.pd__h2{
+  font-size:16px;
+  font-weight:900;
+  margin:0;
+  color:var(--pd-black);
+}
+
+/* Filtros */
+.pd__panelFilters{
+  display:flex;
+  gap:12px;
+  padding:12px 14px;
+  border-bottom:1px solid var(--pd-border);
+  background:var(--pd-white);
+}
+.pd__filterLabel{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  font-size:13px;
+  color:var(--pd-black);
+}
+.pd__input,.pd__select{
+  border:1px solid var(--pd-border-strong);
+  border-radius:10px;
+  padding:8px 10px;
+  background:var(--pd-white);
+  color:var(--pd-black);
+  outline:none;
+}
+.pd__input:focus,.pd__select:focus{
+  border-color:#000;
+}
+.pd__input::placeholder{ color:#9aa3ad; }
+
+/* Gráficos */
+.pd__chartWrap{ padding:10px 12px 18px; }
+.recharts-text{ fill:#000; }
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line{
+  stroke:#bfc5cd !important;
+  stroke-dasharray:3 3;
+}
+.recharts-legend-item-text{ color:#000 !important; }
+
+/* Tabela */
+.pd__tableWrap{ overflow:auto; }
+.pd__table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+.pd__table thead th{
+  position:sticky; top:0;
+  background:#f3f4f7;
+  border-bottom:1px solid var(--pd-border);
+  text-align:left;
+  padding:12px 10px;
+  white-space:nowrap;
+  font-weight:800;
+  color:#111;
+}
+.pd__table tbody td{
+  border-bottom:1px solid var(--pd-border);
+  padding:10px;
+  white-space:nowrap;
+  color:#111;
+}
+.pd__thRight,.pd__tdRight{ text-align:right; }
+
+/* Accordion (se usar) */
+.pd__accordionBtn{
+  width:100%;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 14px;
+  background:#f3f4f7;
+  border:0; border-bottom:1px solid var(--pd-border);
+  cursor:pointer;
+}
+.pd__chev{ transition:transform .2s ease; }
+.pd__chev.open{ transform:rotate(180deg); }
+
+/* Responsivo */
+@media (max-width: 1100px){
+  .pd__kpis{ grid-template-columns:repeat(3,1fr); }
+}
+@media (max-width: 820px){
+  .pd__kpis{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width: 520px){
+  .pd__kpis{ grid-template-columns:1fr; }
+  .pd__title{ font-size:28px; }
+}
